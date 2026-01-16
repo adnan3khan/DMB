@@ -21,8 +21,8 @@ services:
       - /home/addy/docker/DMB/mnt/debrid:/mnt/debrid:rshared     ## Location for all symlinks and rclone mounts     
     environment:
       - TZ=
-      - PUID=
-      - PGID=
+      - PUID=1000
+      - PGID=1000
     # network_mode: container:gluetun                               ## Example to attach to gluetun vpn container if realdebrid blocks IP address
     ports:
       - "3005:3005"                                                 ## DMB Frontend
