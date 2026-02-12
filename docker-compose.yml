@@ -2,6 +2,7 @@ services:
   DMB:
     container_name: DMB
     image: iampuid0/dmb:latest                                       ## Optionally, specify a specific version of DMB w/ image: iampuid0/dmb:2.0.0
+    restart: unless-stopped
     stop_grace_period: 30s                                           ## Adjust as need to allow for graceful shutdown of the container
     shm_size: 128mb                                                  ## Increased for PostgreSQL
     stdin_open: true                                                 ## docker run -i
@@ -30,6 +31,7 @@ services:
       - "5050:5050"                                                 ## pgAdmin 4
       - "5000:5000"                                                 ## CLI Debrid Frontend      
       - "8282:8282"                                                 ## Decypharr Frontend         
+      - "9090:9090"
     devices:
       - /dev/fuse:/dev/fuse:rwm
     cap_add:
